@@ -89,13 +89,14 @@ choices.forEach((choice) => {
 
         acceptingAnswers = false;
         const selectedChoice = e.target;
+        const nilai = `${100 / MAX_QUESTIONS}`;
         const selectedAnswer = selectedChoice.dataset['number'];
 
         const classToApply =
             selectedAnswer == currentQuestion.answer ? 'correct' : 'incorrect';
 
         if (classToApply === 'correct') {
-            incrementScore(CORRECT_BONUS);
+            incrementScore(nilai);
         }
 
         selectedChoice.parentElement.classList.add(classToApply);
