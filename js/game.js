@@ -47,8 +47,8 @@ fetch(
     });
 
 //CONSTANTS
-const CORRECT_BONUS = 10;
 const MAX_QUESTIONS = 5;
+const CORRECT_BONUS = 100 / MAX_QUESTIONS;
 
 startGame = () => {
     questionCounter = 0;
@@ -89,14 +89,13 @@ choices.forEach((choice) => {
 
         acceptingAnswers = false;
         const selectedChoice = e.target;
-        const nilai = `${100 / MAX_QUESTIONS}`;
         const selectedAnswer = selectedChoice.dataset['number'];
 
         const classToApply =
             selectedAnswer == currentQuestion.answer ? 'correct' : 'incorrect';
 
         if (classToApply === 'correct') {
-            incrementScore(nilai);
+            incrementScore(CORRECT_BONUS);
         }
 
         selectedChoice.parentElement.classList.add(classToApply);
